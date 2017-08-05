@@ -386,8 +386,33 @@
       
         
           
-            <p>网上git 的命令行操作的介绍很多，一搜一大把，但突然发现</p>
-
+            <p>网上git 的命令行操作的介绍很多，一搜一大把，但突然发现，东西太多不见得是一件好事，<br>太多 ≈ 没有。还是自己看progit自己总结一下来得实在，来的踏实。</p>
+<h1 id="Git基础"><a href="#Git基础" class="headerlink" title="Git基础"></a>Git基础</h1><h2 id="获取Git仓库"><a href="#获取Git仓库" class="headerlink" title="获取Git仓库"></a>获取Git仓库</h2><p>获取仓库包括两种：</p>
+<ul>
+<li>现有目录初始化 git init</li>
+<li>clone</li>
+</ul>
+<h2 id="检查当前文件状态"><a href="#检查当前文件状态" class="headerlink" title="检查当前文件状态"></a>检查当前文件状态</h2><p>文件状态分为两种：已跟踪（快照有记录）和未跟踪<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git status</div></pre></td></tr></table></figure></p>
+<p>另外，加 -s 得到一种更为紧凑的格式输出<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git status -s</div><div class="line">M README</div><div class="line">MM Rakefile</div><div class="line">A lib/git.rb</div><div class="line">M lib/simplegit.rb</div><div class="line">?? LICENSE.txt</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>新添加的未跟踪文件前面有 ?? 标记，新添加到暂存区中的文件前面有 A 标记，修改过的文件前面有 M 标记。你<br>可能注意到了 M 有两个可以出现的位置，出现在右边的 M 表示该文件被修改了但是还没放入暂存区，出现在靠左<br>边的 M 表示该文件被修改了并放入了暂存区。例如，上面的状态报告显示： README 文件在工作区被修改了但是<br>还没有将修改后的文件放入暂存区,lib/simplegit.rb 文件被修改了并将修改后的文件放入了暂存区。而<br>Rakefile 在工作区被修改并提交到暂存区后又在工作区中被修改了，所以在暂存区和工作区都有该文件被修改<br>了的记录</p>
+</blockquote>
+<h2 id="跟踪新文件"><a href="#跟踪新文件" class="headerlink" title="跟踪新文件"></a>跟踪新文件</h2><p>跟踪README文件<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add README</div></pre></td></tr></table></figure></p>
+<p>add 之后，README文件就变成<strong>已暂存</strong>状态</p>
+<h2 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h2><p>通过创建。gitignore文件来实现<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cat .gitignore</div><div class="line">*.[oa]</div><div class="line">*~</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>第一行告诉 Git 忽略所有以 .o 或 .a 结尾的文件。一般这类对象文件和存档文件都是编译过程中出现的。第二行<br>告诉 Git 忽略所有以波浪符（~）结尾的文件，许多文本编辑软件（比如 Emacs）都用这样的文件名保存副本。<br>此外，你可能还需要忽略 log，tmp 或者 pid 目录，以及自动生成的文档等等。要养成一开始就设置好<br>.gitignore 文件的习惯，以免将来误提交这类无用的文件。</p>
+</blockquote>
+<h2 id="查看已暂存和未暂存的修改"><a href="#查看已暂存和未暂存的修改" class="headerlink" title="查看已暂存和未暂存的修改"></a>查看已暂存和未暂存的修改</h2><p>git diff 命令比较的是工作目录中当前文件和暂存区域快照之间的差异(也就是显示尚未暂存的改动)<br>查看已暂存的将要添加到下次提交里的内容，可以用 git diff –cached 命令</p>
+<h2 id="提交更新"><a href="#提交更新" class="headerlink" title="提交更新"></a>提交更新</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit</div></pre></td></tr></table></figure>
+<blockquote>
+<p>养成一个好习惯，每次准备提交前，先用 git status 看下，是不是都已暂存起来了，然后再运行提交命令 git commit</p>
+</blockquote>
+<p>但某些情况，我们想跳过使用暂存区域，直接提交，可使用如下命令<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -a</div></pre></td></tr></table></figure></p>
+<p>Git 就会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 git add 步骤</p>
+<h2 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h2><p><strong>git rm</strong> 和 <strong>rm</strong>相比，会增加移除这一操作的信息。<br>如果<strong>rm</strong>后，想增加移除这一操作的信息，可再执行<strong>git rm</strong><br>如果<strong>rm</strong>过多文件，不适合一个个再<strong>git rm</strong>，可使用<strong>git commit -am “abc”</strong></p>
+<p>想让文件保留在磁盘，但是并不想让 Git 继续跟踪<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rm --cached README</div></pre></td></tr></table></figure></p>
+<h1 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h1><h1 id="服务器上的分支"><a href="#服务器上的分支" class="headerlink" title="服务器上的分支"></a>服务器上的分支</h1>
           
         
       
