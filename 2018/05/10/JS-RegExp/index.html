@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="对象创建,对象继承," />
+  <meta name="keywords" content="RegExp," />
 
 
 
@@ -94,21 +94,18 @@
 
 
 
-<meta name="description" content="又看了一下JS高程三，对JS对象的创建和继承认识又清楚了一些，在visio中画了图，如下：">
-<meta name="keywords" content="对象创建,对象继承">
+<meta name="description" content="归纳一下正则表达式">
+<meta name="keywords" content="RegExp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS对象创建和继承">
-<meta property="og:url" content="http://yoursite.com/2018/03/06/JS对象和继承/index.html">
+<meta property="og:title" content="JS-RegExp">
+<meta property="og:url" content="http://yoursite.com/2018/05/10/JS-RegExp/index.html">
 <meta property="og:site_name" content="Pan Sir">
-<meta property="og:description" content="又看了一下JS高程三，对JS对象的创建和继承认识又清楚了一些，在visio中画了图，如下：">
+<meta property="og:description" content="归纳一下正则表达式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/03/06/JS对象和继承/createObject.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/03/06/JS对象和继承/inherit.jpg">
-<meta property="og:updated_time" content="2018-05-01T07:05:24.605Z">
+<meta property="og:updated_time" content="2018-05-10T07:49:10.656Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS对象创建和继承">
-<meta name="twitter:description" content="又看了一下JS高程三，对JS对象的创建和继承认识又清楚了一些，在visio中画了图，如下：">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/06/JS对象和继承/createObject.jpg">
+<meta name="twitter:title" content="JS-RegExp">
+<meta name="twitter:description" content="归纳一下正则表达式">
 
 
 
@@ -137,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/06/JS对象和继承/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/10/JS-RegExp/"/>
 
 
 
 
 
-  <title>JS对象创建和继承 | Pan Sir</title>
+  <title>JS-RegExp | Pan Sir</title>
   
 
 
@@ -296,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/JS对象和继承/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/10/JS-RegExp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pan Sir">
@@ -313,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS对象创建和继承</h1>
+          <h1 class="post-title" itemprop="name headline">JS-RegExp</h1>
         
 
         <div class="post-meta">
@@ -325,8 +322,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T23:30:57+08:00">
-                2018-03-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-10T14:49:07+08:00">
+                2018-05-10
               </time>
             
 
@@ -385,10 +382,23 @@
       
 
       
-        <p>又看了一下JS高程三，对JS对象的创建和继承认识又清楚了一些，在visio中画了图，如下：<br><a id="more"></a></p>
-<h1 id="JS对象创建演进过程"><a href="#JS对象创建演进过程" class="headerlink" title="JS对象创建演进过程"></a>JS对象创建演进过程</h1><p><img src="/2018/03/06/JS对象和继承/createObject.jpg" alt="creatObject"></p>
-<h1 id="JS对象的继承演进过程"><a href="#JS对象的继承演进过程" class="headerlink" title="JS对象的继承演进过程"></a>JS对象的继承演进过程</h1><p><img src="/2018/03/06/JS对象和继承/inherit.jpg" alt="inherit"></p>
-
+        <p>归纳一下正则表达式<br><a id="more"></a></p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var patt = new RegExp(&quot;\\w+&quot;)</div><div class="line"></div><div class="line">var patt = /\w+/</div></pre></td></tr></table></figure>
+<h1 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h1><p> i     大小写不敏感<br> g     全局匹配<br> m     多行匹配</p>
+<h1 id="方括号"><a href="#方括号" class="headerlink" title="方括号"></a>方括号</h1><p> [abc]     匹配集合内任何字符<br> [^abc]     与上否<br> [0-9]     任何0-9之间的数字<br> [a-z]     任何小写a-z的字符<br> [A-Z]     大写<br> [A-z]     大写至小写</p>
+<h1 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h1><p> .     单个字符（除了换行和行结束）<br> \w     单词字符<br> \W     非（同上）<br> \d     数字<br> \D     非（同上）<br> \s     空白字符<br> \S     非（同上）<br> \b     单词边界<br> \B     非（同上）<br> \0     NULL字符<br> \n     换行符<br> \f     换页符<br> \r     回车符<br> \t     制表符<br> \v     垂直制表符<br> \xxx     八进制xxx规定字符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &quot;Hello World!&quot;;</div><div class="line">var patt = /\127/g;</div><div class="line"></div><div class="line">//result  W</div></pre></td></tr></table></figure></p>
+<p> \xdd     十六进制dd规定字符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &quot;hello World！&quot;;</div><div class="line">var patt = /\x57/g;</div><div class="line"></div><div class="line">//result W</div></pre></td></tr></table></figure></p>
+<p> \uxxxx     十六进制xxxx规定的Unicode字符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &quot;hello World！&quot;;</div><div class="line">var patt = /\u0057/g;</div><div class="line"></div><div class="line">//result W</div></pre></td></tr></table></figure></p>
+<h1 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h1><blockquote>
+<p>n+     至少一个， 1 2 3 4 …<br>n*     0或多个<br>n?     0或1<br>n{X}     X个<br>n{X,}     至少X个<br>n{X,Y}     X&lt;=次数&lt;=Y<br>n$     以n结尾<br>^n     以n开头<br>?=n     紧接n<br>?!n     没有紧接n</p>
+</blockquote>
+<h1 id="对象方法"><a href="#对象方法" class="headerlink" title="对象方法"></a>对象方法</h1><h2 id="RegExp对象方法"><a href="#RegExp对象方法" class="headerlink" title="RegExp对象方法"></a>RegExp对象方法</h2><p>exec<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">patt.exec(str)</div><div class="line">//返回匹配值</div></pre></td></tr></table></figure></p>
+<p>test<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">patt.test(str)</div><div class="line">//返回true false</div></pre></td></tr></table></figure></p>
+<p>toString<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var patt = new RegExp(&quot;test&quot;, &quot;g&quot;);</div><div class="line">var res = patt.toString();</div><div class="line"></div><div class="line">//返回 /test/g</div></pre></td></tr></table></figure></p>
+<h2 id="支持正则表达式的String对象的方法"><a href="#支持正则表达式的String对象的方法" class="headerlink" title="支持正则表达式的String对象的方法"></a>支持正则表达式的String对象的方法</h2><p>search<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">str.search(&quot;blue&quot;)</div><div class="line"></div><div class="line">str.search(/blue/i)</div><div class="line"></div><div class="line">//返回匹配的起始位置，匹配不上为-1</div></pre></td></tr></table></figure></p>
+<p>match<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">str.match(/ain/gi)</div><div class="line"></div><div class="line">//匹配上了返回数组，否则null</div></pre></td></tr></table></figure></p>
+<p>replace<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">str.replace(/blue/g,&quot;red&quot;)</div><div class="line"></div><div class="line">//返回的是替换后的string</div></pre></td></tr></table></figure></p>
+<h1 id="表单验证实例"><a href="#表单验证实例" class="headerlink" title="表单验证实例"></a>表单验证实例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">/*是否带有小数*/</div><div class="line">function    isDecimal(strValue )  &#123;  </div><div class="line">   var  objRegExp= /^\d+\.\d+$/;</div><div class="line">   return  objRegExp.test(strValue);  </div><div class="line">&#125;  </div><div class="line"></div><div class="line">/*校验是否中文名称组成 */</div><div class="line">function ischina(str) &#123;</div><div class="line">    var reg=/^[\u4E00-\u9FA5]&#123;2,4&#125;$/;   /*定义验证表达式*/</div><div class="line">    return reg.test(str);     /*进行验证*/</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*校验是否全由8位数字组成 */</div><div class="line">function isStudentNo(str) &#123;</div><div class="line">    var reg=/^[0-9]&#123;8&#125;$/;   /*定义验证表达式*/</div><div class="line">    return reg.test(str);     /*进行验证*/</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*校验电话码格式 */</div><div class="line">function isTelCode(str) &#123;</div><div class="line">    var reg= /^((0\d&#123;2,3&#125;-\d&#123;7,8&#125;)|(1[3584]\d&#123;9&#125;))$/;</div><div class="line">    return reg.test(str);</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*校验邮件地址是否合法 */</div><div class="line">function IsEmail(str) &#123;</div><div class="line">    var reg=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+$/;</div><div class="line">    return reg.test(str);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -405,9 +415,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/对象创建/" rel="tag"><i class="fa fa-tag"></i> 对象创建</a>
-          
-            <a href="/tags/对象继承/" rel="tag"><i class="fa fa-tag"></i> 对象继承</a>
+            <a href="/tags/RegExp/" rel="tag"><i class="fa fa-tag"></i> RegExp</a>
           
         </div>
       
@@ -420,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/06/JS-module/" rel="next" title="JS 模块化">
-                <i class="fa fa-chevron-left"></i> JS 模块化
+              <a href="/2018/05/01/JS-DOM/" rel="next" title="JS-DOM">
+                <i class="fa fa-chevron-left"></i> JS-DOM
               </a>
             
           </div>
@@ -429,10 +437,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/12/growAfterRain/" rel="prev" title="雨后成长">
-                雨后成长 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -566,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JS对象创建演进过程"><span class="nav-number">1.</span> <span class="nav-text">JS对象创建演进过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS对象的继承演进过程"><span class="nav-number">2.</span> <span class="nav-text">JS对象的继承演进过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#语法"><span class="nav-number">1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修饰符"><span class="nav-number">2.</span> <span class="nav-text">修饰符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方括号"><span class="nav-number">3.</span> <span class="nav-text">方括号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#元字符"><span class="nav-number">4.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#量词"><span class="nav-number">5.</span> <span class="nav-text">量词</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象方法"><span class="nav-number">6.</span> <span class="nav-text">对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RegExp对象方法"><span class="nav-number">6.1.</span> <span class="nav-text">RegExp对象方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持正则表达式的String对象的方法"><span class="nav-number">6.2.</span> <span class="nav-text">支持正则表达式的String对象的方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表单验证实例"><span class="nav-number">7.</span> <span class="nav-text">表单验证实例</span></a></li></ol></div>
             
 
           </div>
