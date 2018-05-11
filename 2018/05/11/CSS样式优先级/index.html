@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Pan Sir">
 <meta property="og:description" content="随着页面的复杂性，一个标签的样式受到越来越多因素的影响。从两个角度来看CSS样式的优先级  1.CSS的继承性  2.选择器的优先级">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-11T03:00:28.395Z">
+<meta property="og:updated_time" content="2018-05-11T03:05:07.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS样式优先级">
 <meta name="twitter:description" content="随着页面的复杂性，一个标签的样式受到越来越多因素的影响。从两个角度来看CSS样式的优先级  1.CSS的继承性  2.选择器的优先级">
@@ -393,7 +393,7 @@
 <blockquote>
 <p>依次比较a b c的大小，如果都相等，则“就近原则”</p>
 </blockquote>
-<h2 id="rule-5"><a href="#rule-5" class="headerlink" title="rule 5:"></a>rule 5:</h2><p>属性后插有！important的属性拥有最高优先级，若同时拥有，则利用rule3、4比较<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// CSS</div><div class="line">p &#123;</div><div class="line">    background: red !important;</div><div class="line">&#125;</div><div class="line">``` </div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&gt;</div><div class="line">注意：按照加权值的说法 100 10 1,11个类选择器和1个ID选择器，按计算110&gt;100,实际仍按ID样式来，原因在于</div><div class="line">***选择器权值不能进位***</div><div class="line">1000个类选择器权值为99.9999.... &lt; 100   (瘦死的ID比类大...)</div><div class="line"></div><div class="line"># 比较了&lt;link&gt;和@import</div></pre></td></tr></table></figure></p>
+<h2 id="rule-5"><a href="#rule-5" class="headerlink" title="rule 5:"></a>rule 5:</h2><p>属性后插有！important的属性拥有最高优先级，若同时拥有，则利用rule3、4比较<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">    background: red !important;</div><div class="line">&#125;</div><div class="line">``` </div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&gt;注意：按照加权值的说法 100 10 1,11个类选择器和1个ID选择器，按计算110&gt;100,实际仍按ID样式来，原因在于</div><div class="line">***选择器权值不能进位***</div><div class="line">1000个类选择器权值为99.9999.... &lt; 100   (瘦死的ID比类大...)</div><div class="line"></div><div class="line"># 比较了&lt;link&gt;和@import</div></pre></td></tr></table></figure></p>
 <p>链接方式指的是使用 HTML 头部的 <head> 标签引入外部的 CSS 文件。</head></p>
 <head><br>    <link rel="stylesheet" type="text/css" href="style.css"><br></head>
 
