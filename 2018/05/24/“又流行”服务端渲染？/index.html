@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Pan Sir">
 <meta property="og:description" content="在知乎上看人回答了这个问题，有点受启发，感谢alienbat，为便于自己回思，故转载回答至此。为什么现在又流行服务端渲染html？ - alienbat的回答 - 知乎">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-24T15:02:25.795Z">
+<meta property="og:updated_time" content="2018-05-24T15:04:37.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="“又流行”服务端渲染？">
 <meta name="twitter:description" content="在知乎上看人回答了这个问题，有点受启发，感谢alienbat，为便于自己回思，故转载回答至此。为什么现在又流行服务端渲染html？ - alienbat的回答 - 知乎">
@@ -384,6 +384,7 @@
       
         <p>在知乎上看人回答了这个问题，有点受启发，感谢alienbat，为便于自己回思，故转载回答至此。<br><a href="https://www.zhihu.com/question/59578433/answer/332545815" target="_blank" rel="external">为什么现在又流行服务端渲染html？ - alienbat的回答 - 知乎</a></p>
 <a id="more"></a>
+<hr>
 <p>现在的服务端渲染和过去的服务端渲染完全是两码事。什么叫“又流行”？说明看问题太浅薄。</p>
 <p>以前的服务器渲染，是以“文档”为核心思想。服务器端的逻辑是把HTML, CSS, Javascript当作一个静态文件，对“文档”而言不存在“指令”和“数据”的区别，一切都是数据。所以我们可以看到服务器渲染，GET就是请求一个文件，而web 1.0时代的诸多服务端框架最基础的组件之一就是文档模版，比如asp, JSP之类，<strong>核心设计理念就是HTML文件里放占位符然后由服务端逻辑替换成实际数据后一股脑返回。</strong></p>
 <p>现在划重点：Web 2.0时代最大的思想革命本质不是前后端分离，而是把网页当作独立的应用程序（app）。前后端分离只是实现这一新架构的必然结果。对程序而言指令和数据是分离的。HTTP GET拿到的不是渲染后的网页，而是一个由html和Javascript组成的app, 这个app以浏览器为虚拟机。装载和显示数据是app启动之后的运行逻辑。传统上app叫什么？叫Client，也就是前端。于是前后端就这么分离了，浏览器变成了app的运行环境，后端蜕化成了单纯的业务逻辑和数据接口。写Javascript不再是给网页添特效的小伎俩，而是正经的和写桌面应用程序一样的工程。于是我们看到了前端工程化，编译（转译），各种MVC/MVVM框架，依赖工具，等等。很新鲜吗？不新鲜，都是传统桌面开发玩剩下的。我很早就说过，前端NodeJS的那堆东西，什么npm，Babel，Webpack，gulp，各个框架的cli… 本质上就是开源社区东拼西凑做一个Visual Studio。</p>
